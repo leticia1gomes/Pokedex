@@ -1,7 +1,12 @@
 <html>
     <head>
         <style>
-            .cartão{
+            .grid{
+                display:grid;
+                grid-template-columns:repeat(3,1fr);
+                gap:20px;
+            }
+            .cartao{
                 position:relative;
                 display:flex;
                 align-items: center;
@@ -23,11 +28,14 @@
         </style>
     </had>
     <body>
-        <div class="cartão">
-            <img src={{imagem}}>
-            <h2>#{{numero}}</h2>
-            <h1>{{nome}}</h1>
-        
-    </div>
+       <div class="grid">
+        {% for item in numeros %}
+        <div class="cartao">
+            <img src={{imagens[loop.index0]}}>
+            <h2>#{{numeros[loop.index0]}}</h2>
+            <h1>{{nomes[loop.index0]}}</h1>
+        </div>
+        {% endfor %}
+        </div>
     </body>
 </html>
